@@ -1,0 +1,27 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=961
+
+When debugging vimscript, you sometimes need to clearly see what's inside the string value: which unprintable characters it contains ? Does it contain any multibyte chars ? In which positions ?
+
+For buffer characters, you can use 'ga' to see them clearly. To see characters of strings (variables, registers etc),  you can use DumpStr.vim.
+
+Usage: 
+  - :source DumpStr.vim 
+  - :call TestDumpStr()        " test/demo
+  - :call DumpStr(string_variable)
+  - :call DumpStr(@Register)
+
+When string has multi-byte characters, DumpStr prints in following format:
+
+String length:   M bytes, N chars
+                   (string has multibyte characters) ( encoding=ENC )
+Char dump:       decimalCode(char) ...
+Bytes:          "..."
+Byte dump:       decimalCode(byte) ....
+
+When string has no multi-byte characters, DumpStr dumps in this format:
+
+String length:   M bytes (no multibyte characters) ( encoding=ENC )
+Bytes:          "..."
+Byte dump:       decimalCode(byte) ....
+
+
